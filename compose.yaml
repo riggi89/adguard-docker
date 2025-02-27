@@ -19,9 +19,9 @@ services:
       - "53:53/udp" # unverschlüsseltes DNS
       - "67:67/udp" # DHCP
       - "68:68/udp" # DHCP
-      - "80:80/tcp" # Admin-Webobefläche & DNS over HTTPS
-      - "443:443/tcp" # Admin-Webobefläche & DNS over HTTPS
-      - "443:443/udp" # Admin-Webobefläche & DNS over HTTPS
+      - "80:80/tcp" # Admin-Webobefläche and DNS over HTTPS
+      - "443:443/tcp" # Admin-Webobefläche and DNS over HTTPS
+      - "443:443/udp" # Admin-Webobefläche and DNS over HTTPS
       - "3000:3000/tcp" # Ersteinrichtung
       - "853:853/tcp" # DNS over TLS
       - "853:853/udp" # DNS over Quic
