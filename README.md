@@ -4,11 +4,6 @@ This guide provides instructions on how to set up AdGuard Home in a Docker conta
 
 Testet with Synology DS723+ with DSM 7.2 and Fritzbox 6591 Cable
 
-## Requirements
-
-- Docker installed via Synology Container Manager
-- OPNsense firewall (if applicable, for additional network configuration)
-
 ## Features
 
 - Dedicated IP via macvlan
