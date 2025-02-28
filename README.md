@@ -33,12 +33,12 @@ nano /volume1/@appconf/ContainerManager/dockerd.json
   - ```"fixed-cidr-v6": "fd00::/80"``` → Assigns a fixed internal IPv6 subnet (fd00::/80) from which Docker can allocate IPv6 addresses to containers.
     
 ## Why Is This Necessary?
-  - Without this change, Docker does not assign IPv6 addresses to containers.
-  - AdGuardHome and other services cannot handle IPv6 queries without proper IPv6 support.
-  - IPv6 networking (e.g., macvlan with IPv6) only works if Docker is IPv6-enabled.
 
+- Without this change, Docker does not assign IPv6 addresses to containers.
+- AdGuardHome and other services cannot handle IPv6 queries without proper IPv6 support.
+- IPv6 networking (e.g., macvlan with IPv6) only works if Docker is IPv6-enabled.
 
-    After modifying the configuration, you must restart the Container Manager for the changes to take effect:
+After modifying the configuration, you must restart the Container Manager for the changes to take effect:
 ```
 sudo synopkg restart ContainerManager
 ```
