@@ -29,11 +29,11 @@ nano /volume1/@appconf/ContainerManager/dockerd.json
   "fixed-cidr-v6": "fd00::/80"
 }
 ```
-## Explanation of the Parameters:
+### Explanation of the Parameters:
   - ```"ipv6": true``` → Enables IPv6 support in the Docker daemon
   - ```"fixed-cidr-v6": "fd00::/80"``` → Assigns a fixed internal IPv6 subnet (fd00::/80) from which Docker can allocate IPv6 addresses to containers.
     
-## Why Is This Necessary?
+### Why Is This Necessary?
 
 - Without this change, Docker does not assign IPv6 addresses to containers.
 - AdGuardHome and other services cannot handle IPv6 queries without proper IPv6 support.
