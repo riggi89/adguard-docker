@@ -4,10 +4,9 @@ This guide provides instructions on how to set up AdGuard Home in a Docker conta
 
 ## Requirements
 
-- Testet with Synology DS723+ and DSM 7.2
+- Testet with Synology DS723+ with DSM 7.2 and Fritzbox 6591 Cable
 - Docker installed via Synology Container Manager
 - OPNsense firewall (if applicable, for additional network configuration)
-- Fritzbox 6591 Cable (if applicable, for internet access)
 
 ## Features
 
@@ -16,9 +15,35 @@ This guide provides instructions on how to set up AdGuard Home in a Docker conta
 - Efficient ad blocking with AdGuard Home
 - Integration with Synology DSM 7.2 and Docker
 
-Support & Discussions: <a href="https://github.com/riggi89/adguard-docker/issues">GitHub Issues</a>
+## Install
+Modifying the Docker Configuration
+The file /volume1/@appconf/ContainerManager/dockerd.json contains the settings for the Docker daemon. To enable IPv6, add the following entries:
+```
+nano /volume1/@appconf/ContainerManager/dockerd.json
+```
 
-### compose.yaml
+```json
+{
+  "ipv6": true,
+  "fixed-cidr-v6": "fd00::/80"
+}
+```
+## Explanation of the Parameters:
+  - ```"ipv6": true``` → Enables IPv6 support in the Docker daemon
+  - ```"fixed-cidr-v6": "fd00::/80"``` → Assigns a fixed internal IPv6 subnet (fd00::/80) from which Docker can allocate IPv6 addresses to containers.
+    
+## Why Is This Necessary?
+  - Without this change, Docker does not assign IPv6 addresses to containers.
+  - AdGuardHome and other services cannot handle IPv6 queries without proper IPv6 support.
+  - IPv6 networking (e.g., macvlan with IPv6) only works if Docker is IPv6-enabled.
+
+
+    After modifying the configuration, you must restart the Container Manager for the changes to take effect:
+```
+sudo synopkg restart ContainerManager
+```
+
+## compose.yaml
 ```xaml
 version: '3'
 
@@ -71,3 +96,6 @@ networks:
         - subnet: "2001:db8:abcd:1234::/64"  # Random IPv6 subnet for documentation, replace with your real subnet.
           gateway: "2001:db8:abcd:1234::1"   # Random IPv6 gateway, change to match your router configuration.
 ```
+
+## Support & Discussions
+<a href="https://github.com/riggi89/adguard-docker/issues">GitHub Issues</a>
