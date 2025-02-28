@@ -1,10 +1,11 @@
-# adguard-docker
+# AdGuard Home for Synology Container Manager
 
 This guide provides instructions on how to set up AdGuard Home in a Docker container on a Synology DS723+ with DSM 7.2 using Synology Container Manager. The setup includes macvlan networking to allow AdGuard Home to have its own dedicated IP address and supports IPv6 functionality.
 
+Testet with Synology DS723+ with DSM 7.2 and Fritzbox 6591 Cable
+
 ## Requirements
 
-- Testet with Synology DS723+ with DSM 7.2 and Fritzbox 6591 Cable
 - Docker installed via Synology Container Manager
 - OPNsense firewall (if applicable, for additional network configuration)
 
