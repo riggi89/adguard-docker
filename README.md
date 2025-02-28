@@ -20,7 +20,7 @@ Testet with Synology DS723+ with DSM 7.2 and Fritzbox 6591 Cable
 Modifying the Docker Configuration via SSH
 The file /volume1/@appconf/ContainerManager/dockerd.json contains the settings for the Docker daemon. To enable IPv6, add the following entries:
 ```
-nano /volume1/@appconf/ContainerManager/dockerd.json
+sudo nano /volume1/@appconf/ContainerManager/dockerd.json
 ```
 
 ```json
