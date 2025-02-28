@@ -16,7 +16,7 @@ This guide provides instructions on how to set up AdGuard Home in a Docker conta
 - Integration with Synology DSM 7.2 and Docker
 
 ## Install
-Modifying the Docker Configuration
+Modifying the Docker Configuration via SSH
 The file /volume1/@appconf/ContainerManager/dockerd.json contains the settings for the Docker daemon. To enable IPv6, add the following entries:
 ```
 nano /volume1/@appconf/ContainerManager/dockerd.json
